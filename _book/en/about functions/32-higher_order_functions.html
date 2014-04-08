@@ -1,0 +1,568 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        <meta charset="UTF-8">
+        <title>Higher order functions | О Haskell по-человечески</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="denisshevchenko">
+        <meta name="description" content="Book generated using GitBook">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+        
+        <link href='http://fonts.googleapis.com/css?family=Cuprum:400,400italic,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+        
+        <link rel="next" href="../about functions/33-functional_chains.html" />
+        
+        
+        <link rel="prev" href="../about functions/31-lambda_functions.html" />
+        
+
+        <meta property="og:title" content="Higher order functions | О Haskell по-человечески">
+        <meta property="og:site_name" content="О Haskell по-человечески">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/denisshevchenko">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+        
+        <link rel="stylesheet" href="../gitbook/style.css">
+        
+        
+    </head>
+    <body>
+        
+<div class="book" data-github="denisshevchenko/ohaskell" data-level="4.3" data-basepath=".." data-revision="1396985499365">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="https://github.com/denisshevchenko/ohaskell" target="_blank" class="btn pull-left"><i class="fa fa-github-alt"></i></a>
+    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search"><i class="fa fa-search"></i></a>
+
+    <!-- Actions Right -->
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="google-plus"><i class="fa fa-google-plus"></i></a>
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="twitter"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://github.com/denisshevchenko/ohaskell/stargazers" target="_blank" class="btn pull-right count-star"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/denisshevchenko/ohaskell/watchers" target="_blank" class="btn pull-right count-watch"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+
+
+    <!-- Title -->
+    <h1><a href="../" >О Haskell по-человечески</a></h1>
+</div>
+
+    <div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        <li>
+            <a href="https://github.com/denisshevchenko" target="blank">About the author</a>
+        </li>
+        <li>
+            <a href="https://github.com/denisshevchenko/ohaskell/issues" target="blank">Questions and Issues</a>
+        </li>
+        <li>
+            <a href="https://github.com/denisshevchenko/ohaskell/edit/master/about functions/32-higher_order_functions.md" target="blank">Edit and Contribute</a>
+        </li>
+        <li class="divider"></li>
+        <li data-level="0" data-path="index.html">
+            <a href="../"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+            <li  data-level="1" data-path="intro/README.html">
+                
+                <a href="../intro/README.html">
+                    <i class="fa fa-check"></i> <b>1)</b> Introduction
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="1.1" data-path="intro/00-who.html">
+                            
+                            <a href="../intro/00-who.html">
+                                <i class="fa fa-check"></i> <b>1.1)</b> Who
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.2" data-path="intro/01-why.html">
+                            
+                            <a href="../intro/01-why.html">
+                                <i class="fa fa-check"></i> <b>1.2)</b> Why
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.3" data-path="intro/02-for_what.html">
+                            
+                            <a href="../intro/02-for_what.html">
+                                <i class="fa fa-check"></i> <b>1.3)</b> For what
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.4" data-path="intro/03-for_whom.html">
+                            
+                            <a href="../intro/03-for_whom.html">
+                                <i class="fa fa-check"></i> <b>1.4)</b> For whom
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="2" data-path="prepare/README.html">
+                
+                <a href="../prepare/README.html">
+                    <i class="fa fa-check"></i> <b>2)</b> Prepare
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="2.1" data-path="prepare/10-create_project.html">
+                            
+                            <a href="../prepare/10-create_project.html">
+                                <i class="fa fa-check"></i> <b>2.1)</b> Create project
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.2" data-path="prepare/11-about_modules.html">
+                            
+                            <a href="../prepare/11-about_modules.html">
+                                <i class="fa fa-check"></i> <b>2.2)</b> About modules, minimum
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.3" data-path="prepare/12-about_hackage.html">
+                            
+                            <a href="../prepare/12-about_hackage.html">
+                                <i class="fa fa-check"></i> <b>2.3)</b> About Hackage
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="3" data-path="about Haskell/README.html">
+                
+                <a href="../about Haskell/README.html">
+                    <i class="fa fa-check"></i> <b>3)</b> About Haskell
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="3.1" data-path="about Haskell/20-pure_functionality.html">
+                            
+                            <a href="../about Haskell/20-pure_functionality.html">
+                                <i class="fa fa-check"></i> <b>3.1)</b> Pure functionality
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.2" data-path="about Haskell/21-three_foundations.html">
+                            
+                            <a href="../about Haskell/21-three_foundations.html">
+                                <i class="fa fa-check"></i> <b>3.2)</b> Types, three foundations
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.3" data-path="about Haskell/22-immutability.html">
+                            
+                            <a href="../about Haskell/22-immutability.html">
+                                <i class="fa fa-check"></i> <b>3.3)</b> Immutability
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.4" data-path="about Haskell/23-laziness.html">
+                            
+                            <a href="../about Haskell/23-laziness.html">
+                                <i class="fa fa-check"></i> <b>3.4)</b> Laziness
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="4" data-path="about functions/README.html">
+                
+                <a href="../about functions/README.html">
+                    <i class="fa fa-check"></i> <b>4)</b> About functions
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="4.1" data-path="about functions/30-pure_functions.html">
+                            
+                            <a href="../about functions/30-pure_functions.html">
+                                <i class="fa fa-check"></i> <b>4.1)</b> Pure functions
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.2" data-path="about functions/31-lambda_functions.html">
+                            
+                            <a href="../about functions/31-lambda_functions.html">
+                                <i class="fa fa-check"></i> <b>4.2)</b> Lambda-functions
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.3" data-path="about functions/32-higher_order_functions.html">
+                            
+                            <a href="../about functions/32-higher_order_functions.html">
+                                <i class="fa fa-check"></i> <b>4.3)</b> Higher order functions
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.4" data-path="about functions/33-functional_chains.html">
+                            
+                            <a href="../about functions/33-functional_chains.html">
+                                <i class="fa fa-check"></i> <b>4.4)</b> Functional chains
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="5" data-path="about lists/README.html">
+                
+                <a href="../about lists/README.html">
+                    <i class="fa fa-check"></i> <b>5)</b> About lists
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="5.1" data-path="about lists/40-lists_at_a_glance.html">
+                            
+                            <a href="../about lists/40-lists_at_a_glance.html">
+                                <i class="fa fa-check"></i> <b>5.1)</b> Lists at a glance
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.2" data-path="about lists/41-ranges.html">
+                            
+                            <a href="../about lists/41-ranges.html">
+                                <i class="fa fa-check"></i> <b>5.2)</b> Lambda-functions
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body" tabindex="-1">
+        <div class="body-inner">
+            <div class="page-wrapper">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 81.81818181818181%;min-width: 77.27272727272727%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../intro/README.html" title="Introduction" class="chapter done new-chapter" data-progress="1" style="left: 4.545454545454546%;"></a>
+    
+        <a href="../intro/00-who.html" title="Who" class="chapter done " data-progress="1.1" style="left: 9.090909090909092%;"></a>
+    
+        <a href="../intro/01-why.html" title="Why" class="chapter done " data-progress="1.2" style="left: 13.636363636363637%;"></a>
+    
+        <a href="../intro/02-for_what.html" title="For what" class="chapter done " data-progress="1.3" style="left: 18.181818181818183%;"></a>
+    
+        <a href="../intro/03-for_whom.html" title="For whom" class="chapter done " data-progress="1.4" style="left: 22.727272727272727%;"></a>
+    
+        <a href="../prepare/README.html" title="Prepare" class="chapter done new-chapter" data-progress="2" style="left: 27.272727272727273%;"></a>
+    
+        <a href="../prepare/10-create_project.html" title="Create project" class="chapter done " data-progress="2.1" style="left: 31.818181818181817%;"></a>
+    
+        <a href="../prepare/11-about_modules.html" title="About modules, minimum" class="chapter done " data-progress="2.2" style="left: 36.36363636363637%;"></a>
+    
+        <a href="../prepare/12-about_hackage.html" title="About Hackage" class="chapter done " data-progress="2.3" style="left: 40.90909090909091%;"></a>
+    
+        <a href="../about Haskell/README.html" title="About Haskell" class="chapter done new-chapter" data-progress="3" style="left: 45.45454545454545%;"></a>
+    
+        <a href="../about Haskell/20-pure_functionality.html" title="Pure functionality" class="chapter done " data-progress="3.1" style="left: 50%;"></a>
+    
+        <a href="../about Haskell/21-three_foundations.html" title="Types, three foundations" class="chapter done " data-progress="3.2" style="left: 54.54545454545455%;"></a>
+    
+        <a href="../about Haskell/22-immutability.html" title="Immutability" class="chapter done " data-progress="3.3" style="left: 59.09090909090909%;"></a>
+    
+        <a href="../about Haskell/23-laziness.html" title="Laziness" class="chapter done " data-progress="3.4" style="left: 63.63636363636363%;"></a>
+    
+        <a href="../about functions/README.html" title="About functions" class="chapter done new-chapter" data-progress="4" style="left: 68.18181818181819%;"></a>
+    
+        <a href="../about functions/30-pure_functions.html" title="Pure functions" class="chapter done " data-progress="4.1" style="left: 72.72727272727273%;"></a>
+    
+        <a href="../about functions/31-lambda_functions.html" title="Lambda-functions" class="chapter done " data-progress="4.2" style="left: 77.27272727272727%;"></a>
+    
+        <a href="../about functions/32-higher_order_functions.html" title="Higher order functions" class="chapter done " data-progress="4.3" style="left: 81.81818181818181%;"></a>
+    
+        <a href="../about functions/33-functional_chains.html" title="Functional chains" class="chapter  " data-progress="4.4" style="left: 86.36363636363636%;"></a>
+    
+        <a href="../about lists/README.html" title="About lists" class="chapter  new-chapter" data-progress="5" style="left: 90.9090909090909%;"></a>
+    
+        <a href="../about lists/40-lists_at_a_glance.html" title="Lists at a glance" class="chapter  " data-progress="5.1" style="left: 95.45454545454545%;"></a>
+    
+        <a href="../about lists/41-ranges.html" title="Lambda-functions" class="chapter  " data-progress="5.2" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_14">
+                    
+                        <h3 id="higher-order-functions">Higher-order functions</h3>
+<p>Higher-order functions are very important in Haskell. From previous chapters you have learnt that pure functions are in fact values. Therefore you can, first of all, pass pure functions as arguments to other functions, and, second, return them from other functions.</p>
+<p>A higher-order function is a function, which takes another function as an argument and/or returns another function.</p>
+<h4 id="exposing-functions">Exposing functions</h4>
+<p>As you remember, in the chapter about pure functions I&#39;ve mentioned, that they can take one or more arguments. It&#39;s time to say that I deceived you, as the truth is:</p>
+<blockquote>
+<p><strong>Pure functions in Haskell always take one argument</strong></p>
+</blockquote>
+<p>But how could we declare functions taking two or event three arguments?</p>
+<p>The trick is so called &quot;currying&quot;. This name comes from Haskell Curry. Currying is a transformation of function taking multiple arguments to a function taking them one by one.</p>
+<p>Let&#39;s define a function to divide two numbers:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">divide</span> :: <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span>
+<span class="hljs-title">divide</span> arg1 arg2 = arg1 / arg2
+</code></pre>
+<p>This function takes two values of standart type <code>Double</code> and returns the result of dividing the first argument by the second. That is simple. But if we look inside this function call:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">main</span> = print (divide <span class="hljs-number">10.03</span> <span class="hljs-number">2.1</span>)
+</code></pre>
+<p>then we&#39;ll know, that this call occurs in two steps:</p>
+<ul>
+<li>Function <code>divide</code> is applied to the first argument <code>10.03</code> and - attention! - returns the function of the type <code>Double -&gt; Double</code>.</li>
+<li>This returned function, in turn, is applied to the second argument <code>2.1</code> and returns the final value <code>4.77</code>.</li>
+</ul>
+<p>We can explicitly state this two steps by rewriting the function call:</p>
+<pre><code class="lang-haskell">(divide <span class="hljs-number">10.03</span>) <span class="hljs-number">2.1</span>
+</code></pre>
+<p>The function is applied only to one value: first to <code>10.03</code>, next the function returned by the first call is applied to <code>2.1</code>.</p>
+<p>It is because of these two steps the <code>divide</code> definition contains two arrows instead of one:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">divide</span> :: <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span>
+</code></pre>
+<p>From the conceptual point of view this declaration sounds like: &quot;The function <code>divide</code> takes two values of type <code>Double</code> and returns a value of type <code>Double</code>.&quot; But the more correct way to read this will be: &quot;The function <code>divide</code> is applied to the first <code>Double</code> value and returns a function of type <code>Double -&gt; Double</code>, which is applied to the second <code>Double</code> value and returns the final value of type <code>Double</code>.&quot;</p>
+<p>The correct way of reading can be shown in the declaration:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">divide</span> :: <span class="hljs-type">Double</span> -&gt; (<span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span>)
+</code></pre>
+<p>Now we clearly see, that on the first step we have a call of the function of one argument, which returns a function of the type <code>Double -&gt; Double</code>, and on the second step we have a call of the second function, returned on step one.</p>
+<p>Similarly, if we have a function which takes three arguments:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">totalSum</span> :: <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span>
+<span class="hljs-title">totalSum</span> arg1 arg2 arg3 = arg1 + arg2 + arg3
+</code></pre>
+<p>then its call:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">main</span> = print (totalSum <span class="hljs-number">10.03</span> <span class="hljs-number">2.1</span> <span class="hljs-number">45.7</span>)
+</code></pre>
+<p>would occur in three steps and, to reflect this, we can rewrite this function&#39;s declaration as:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">totalSum</span> :: <span class="hljs-type">Double</span> -&gt; (<span class="hljs-type">Double</span> -&gt; (<span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span>))
+</code></pre>
+<p>and its call as:</p>
+<pre><code class="lang-haskell">((totalSum <span class="hljs-number">10.03</span>) <span class="hljs-number">2.1</span>) <span class="hljs-number">45.7</span>
+</code></pre>
+<p>And, to clarify things completely, let&#39;s study one important thing.</p>
+<h4 id="partial-function-application">Partial function application</h4>
+<p>In spite of the two-step nature of <code>divide</code> function call, its body will be executed only once. A single call, just divided into two steps. And to understand the nature of these steps, let&#39;s study <strong><em>partial application</em></strong> of functions.</p>
+<p>The function is called partially applied, if the number of arguments, to which it is applied, is less than the number expected by this function. Already familiar λ-functions will be useful here.</p>
+<p>Let&#39;s apply the function <code>divide</code> to just a single argument:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">main</span> =
+    <span class="hljs-keyword">let</span> temporaryFunction = divide <span class="hljs-number">10.03</span>  <span class="hljs-comment">-- remember first value</span>
+    <span class="hljs-keyword">in</span>
+    print (temporaryFunction <span class="hljs-number">2.1</span>)         <span class="hljs-comment">-- now we can complete the job</span>
+</code></pre>
+<p>Now everything is in its place. We can clearly see, what does this expression mean:</p>
+<pre><code class="lang-haskell">(divide <span class="hljs-number">10.03</span>) <span class="hljs-number">2.1</span>
+</code></pre>
+<p>We can&#39;t get the result of the division as a result of the first call, because we don&#39;t have the second argument yet! Instead we got a temporary λ-function, which we associated with the expression <code>temporaryFunction</code> just for clarity. This temporary λ-function kind of remembered the first argument, and only when we apply it to the second argument, we will get the result of the division.</p>
+<p>Similarly, the <code>totalSum</code> function call, which occurs in three steps, can be described as:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">let</span> firstFunction = totalSum <span class="hljs-number">1.0</span>        <span class="hljs-comment">-- Remember the first</span>
+    secondFunction = firstFunction <span class="hljs-number">2.0</span>  <span class="hljs-comment">-- Remember the second</span>
+<span class="hljs-title">in</span>
+<span class="hljs-title">print</span> (secondFunction <span class="hljs-number">3.0</span>)              <span class="hljs-comment">-- Now perform the addition</span>
+</code></pre>
+<p>During the call we got two temporary λ-functions, each of which was applied to the next argument and remembered it. Only when the second temporary function λ-function was applied to the third argument, we got the sum.</p>
+<h4 id="why-do-we-need-it">Why do we need it</h4>
+<p>In most cases you don&#39;t need this information about currying and partial application. The main advantage of the approach, when one function of multiple arguments is decomposed into a chain of functions of one argument, lies in the academical plane: it is easier to do mathematical proofs, if you agree that every function takes strictly one argument and returns strictly one value.</p>
+<p>But we, as programmers-practitioners, are more interested in the practical aspect. That&#39;s why we return to considering higher-order functions (HOFs).</p>
+<p>Formally <code>divide</code> and <code>totalSum</code> are HOFs because of those intermediate λ-functions. In fact all functions that take more than one argument are HOFs. But all these intermediate λ-functions are nothing more than internal business, they are hidden from us. The &quot;real&quot; HOFs, which are declared as taking functional values or returning functional values, are more interesting.</p>
+<p>Consider a small example:</p>
+<pre><code class="lang-haskell"><span class="hljs-typedef"><span class="hljs-keyword">type</span> <span class="hljs-type">Login</span> = <span class="hljs-type">String</span></span>
+<span class="hljs-typedef"><span class="hljs-keyword">type</span> <span class="hljs-type">Password</span> = <span class="hljs-type">String</span></span>
+<span class="hljs-typedef"><span class="hljs-keyword">type</span> <span class="hljs-type">AvatarURL</span> = <span class="hljs-type">String</span></span>
+<span class="hljs-typedef"><span class="hljs-keyword">type</span> <span class="hljs-type">UserId</span> = <span class="hljs-type">Integer</span></span>
+
+<span class="hljs-title">userInfo</span> :: <span class="hljs-type">Login</span> -&gt; <span class="hljs-type">Password</span> -&gt; <span class="hljs-type">AvatarURL</span> -&gt; <span class="hljs-type">UserId</span> -&gt; <span class="hljs-type">String</span>
+<span class="hljs-title">userInfo</span> login password avatarURL userId =
+    <span class="hljs-string">"Full info about user @"</span> ++ (show userId) ++ <span class="hljs-string">":"</span>  ++
+    <span class="hljs-string">"\n login: "</span> ++ login ++
+    <span class="hljs-string">"\n password: "</span> ++ password ++
+    <span class="hljs-string">"\n avatar URL: "</span> ++ avatarURL
+
+<span class="hljs-typedef"><span class="hljs-keyword">type</span> <span class="hljs-type">EmptyInfo</span> = <span class="hljs-type">Login</span> -&gt; <span class="hljs-type">Password</span> -&gt; <span class="hljs-type">AvatarURL</span> -&gt; <span class="hljs-type">UserId</span> -&gt; <span class="hljs-type">String</span></span>
+<span class="hljs-typedef"><span class="hljs-keyword">type</span> <span class="hljs-type">WithLogin</span> =          <span class="hljs-type">Password</span> -&gt; <span class="hljs-type">AvatarURL</span> -&gt; <span class="hljs-type">UserId</span> -&gt; <span class="hljs-type">String</span></span>
+<span class="hljs-typedef"><span class="hljs-keyword">type</span> <span class="hljs-type">AndWithPassword</span> =                <span class="hljs-type">AvatarURL</span> -&gt; <span class="hljs-type">UserId</span> -&gt; <span class="hljs-type">String</span></span>
+<span class="hljs-typedef"><span class="hljs-keyword">type</span> <span class="hljs-type">AndWithAvatarURL</span> =                            <span class="hljs-type">UserId</span> -&gt; <span class="hljs-type">String</span></span>
+
+<span class="hljs-title">storeLoginIn</span> :: <span class="hljs-type">EmptyInfo</span> -&gt; <span class="hljs-type">UserId</span> -&gt; <span class="hljs-type">WithLogin</span>
+<span class="hljs-title">storeLoginIn</span> emptyInfo userId =
+    emptyInfo <span class="hljs-string">"denis"</span>
+    <span class="hljs-comment">{- in real project we should get the login
+       according to the passed userId -}</span>
+
+<span class="hljs-title">storePasswordIn</span> :: <span class="hljs-type">WithLogin</span> -&gt; <span class="hljs-type">UserId</span> -&gt; <span class="hljs-type">AndWithPassword</span>
+<span class="hljs-title">storePasswordIn</span> infoWithLogin userId =
+    infoWithLogin <span class="hljs-string">"123456789abc"</span>
+    <span class="hljs-comment">{- in real project we should get the password
+        according to the passed userId -}</span>
+
+<span class="hljs-title">storeAvatarURLIn</span> :: <span class="hljs-type">AndWithPassword</span> -&gt; <span class="hljs-type">UserId</span> -&gt; <span class="hljs-type">AndWithAvatarURL</span>
+<span class="hljs-title">storeAvatarURLIn</span> infoWithPassword userId =
+    infoWithPassword <span class="hljs-string">"http://dshevchenko.biz/denis_avatar.png"</span>
+    <span class="hljs-comment">{- in real project we should get the URL
+        according to the passed userId -}</span>
+
+<span class="hljs-title">main</span> =
+    <span class="hljs-keyword">let</span> userId = <span class="hljs-number">1234</span>
+        infoWithLogin = storeLoginIn userInfo userId
+        infoWithPassword = storePasswordIn infoWithLogin userId
+        infoWithAvatarURL = storeAvatarURLIn infoWithPassword userId
+        fullInfoAboutUser = infoWithAvatarURL userId
+    <span class="hljs-keyword">in</span>
+    putStrLn fullInfoAboutUser
+</code></pre>
+<p>Now let&#39;s deconstruct this into pieces.</p>
+<p>First of all, a new construction appeared:</p>
+<pre><code class="lang-haskell"><span class="hljs-typedef"><span class="hljs-keyword">type</span> <span class="hljs-type">Login</span> = <span class="hljs-type">String</span></span>
+</code></pre>
+<p>The keyword <code>type</code> adds an alias for an already known type. Now we can use <code>Login</code> instead of <code>String</code>.</p>
+<p>Next, we declared a function:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">userInfo</span> :: <span class="hljs-type">Login</span> -&gt; <span class="hljs-type">Password</span> -&gt; <span class="hljs-type">AvatarURL</span> -&gt; <span class="hljs-type">UserId</span> -&gt; <span class="hljs-type">String</span>
+</code></pre>
+<p>This is simple: the function <code>userInfo</code> expects a login, a password, an avatar URL and a user ID and returns a string with description. Pay attention to the double plus sign:</p>
+<pre><code class="lang-haskell"><span class="hljs-string">"\n login: "</span> ++ login
+</code></pre>
+<p>This is a string concatenation operator.</p>
+<p>Now the interesting stuff begins. We assume that we only have a user ID and we need to get the corresponding login, password and avatar URL from somewhere. Fortunately we have three functions, each of which knows, where to find login, password and avatar URL correspondingly. And each of them is an HOF.</p>
+<p>Let&#39;s consider aliases:</p>
+<pre><code class="lang-haskell"><span class="hljs-typedef"><span class="hljs-keyword">type</span> <span class="hljs-type">EmptyInfo</span> = <span class="hljs-type">Login</span> -&gt; <span class="hljs-type">Password</span> -&gt; <span class="hljs-type">AvatarURL</span> -&gt; <span class="hljs-type">UserId</span> -&gt; <span class="hljs-type">String</span></span>
+<span class="hljs-typedef"><span class="hljs-keyword">type</span> <span class="hljs-type">WithLogin</span> =          <span class="hljs-type">Password</span> -&gt; <span class="hljs-type">AvatarURL</span> -&gt; <span class="hljs-type">UserId</span> -&gt; <span class="hljs-type">String</span></span>
+<span class="hljs-typedef"><span class="hljs-keyword">type</span> <span class="hljs-type">AndWithPassword</span> =                <span class="hljs-type">AvatarURL</span> -&gt; <span class="hljs-type">UserId</span> -&gt; <span class="hljs-type">String</span></span>
+<span class="hljs-typedef"><span class="hljs-keyword">type</span> <span class="hljs-type">AndWithAvatarURL</span> =                            <span class="hljs-type">UserId</span> -&gt; <span class="hljs-type">String</span></span>
+</code></pre>
+<p>Each of them introduces a simple name for a functional type, which is formed by cutting the type of <code>userInfo</code> function. Note, that the next type expects one argument less that the previous one. These aliases name types for each intermediate λ-function, which are, as you have already guessed, used for partial application of <code>userInfo</code> function.</p>
+<p>Consider the first call:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">infoWithLogin</span> = storeLoginIn userInfo userId
+</code></pre>
+<p>Here we pass <code>userInfo</code> function as a first argument of function <code>storeLoginIn</code>, inside which we apply passed function <code>userInfo</code> to the only argument, namely login. Respectively, at <code>storeLoginIn</code> function exit we receive the first intermediate λ-function, in which we saved the login value (that&#39;s why this λ-function type is associated with the word <code>WithLogin</code>).</p>
+<p>Next is the call:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">infoWithPassword</span> = storePasswordIn infoWithLogin userId
+</code></pre>
+<p>Here we pass our intermediate λ-function as the first argument of the function <code>storePasswordIn</code>. This function, in turn, applies the λ-function passed to it to the only argument, namely the password. So at <code>storePasswordIn</code> function exit we have the second intermediate λ-function, in which two values are saved: login, received during the previous call and the password from this call.</p>
+<p>The same is true for the next call:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">infoWithAvatarURL</span> = storeAvatarURLIn infoWithPassword userId
+</code></pre>
+<p>At <code>storeAvatarURLIn</code> function exit we receive the third λ-function, in which three values are saved: login, password and path to the avatar.</p>
+<p>As a result we apply the third λ-function to the last necessary argument, namely the user identifier:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">fullInfoAboutUser</span> = infoWithAvatarURL userId
+</code></pre>
+<p>Here occurs the &quot;full&quot; call of function <code>userInfo</code>,  as a result of which we receive the string with description:</p>
+<pre><code>Full info about user<span class="hljs-localvars">@1234</span>:
+ login: denis
+ password: <span class="hljs-number">123456789</span>abc
+ avatar URL: http://dshevchenko<span class="hljs-preprocessor">.biz</span>/denis_avatar<span class="hljs-preprocessor">.png</span>
+</code></pre><p>Thus the function <code>userInfo</code> was partially applied three times, receiving one argument each time, and it received all necessary arguments during the fourth call. This can be compared to conveyor belt, at every step of which the function received the next argument.</p>
+<p>But why do we need such complications? We can simply pass just <code>userId</code> to each of these functions and return not the intermediate λ-function, but directly login, password and path to the avatar correspondingly. For example, instead of <code>storeLoginIn</code> function we could define <code>obtainLogin</code> function like this:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">obtainLogin</span> :: <span class="hljs-type">UserId</span> -&gt; <span class="hljs-type">Login</span>
+<span class="hljs-title">obtainLogin</span> userId =
+    <span class="hljs-comment">-- obtain login from somewhere and return it</span>
+</code></pre>
+<p>But what if we don&#39;t want to return login explicitly? Because in case of the partial application we pack the login into the intermediate λ-function (so in fact we hide the login inside it), and in this case we return it and show it to everyone. The first solution might be more suitable.</p>
+<p>Or the other example:</p>
+<pre><code class="lang-haskell"><span class="hljs-typedef"><span class="hljs-keyword">type</span> <span class="hljs-type">UserId</span> = <span class="hljs-type">Integer</span></span>
+<span class="hljs-typedef"><span class="hljs-keyword">type</span> <span class="hljs-type">Prefix</span> = <span class="hljs-type">String</span></span>
+
+<span class="hljs-title">obtainLogin</span> :: <span class="hljs-type">UserId</span> -&gt; (<span class="hljs-type">Prefix</span> -&gt; <span class="hljs-type">String</span>)
+<span class="hljs-title">obtainLogin</span> userId =
+    loginStorage <span class="hljs-string">"denis"</span>   <span class="hljs-comment">-- we assume that the login is somehow obtained</span>
+        <span class="hljs-keyword">where</span> loginStorage login prefix = prefix ++ <span class="hljs-string">": "</span> ++ login
+
+<span class="hljs-title">main</span> =
+    <span class="hljs-keyword">let</span> userId = <span class="hljs-number">1234</span>
+    <span class="hljs-keyword">in</span>
+    putStrLn ((obtainLogin userId) <span class="hljs-string">"My login"</span>)
+</code></pre>
+<p>Let&#39;s learn more about <code>obtainLogin</code>:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">obtainLogin</span> :: <span class="hljs-type">UserId</span> -&gt; (<span class="hljs-type">Prefix</span> -&gt; <span class="hljs-type">String</span>)
+<span class="hljs-title">obtainLogin</span> userId =
+    loginStorage <span class="hljs-string">"denis"</span>
+        <span class="hljs-keyword">where</span> loginStorage login prefix = prefix ++ <span class="hljs-string">": "</span> ++ login
+</code></pre>
+<p>Here we obtain the login from somewhere based on the passed user identificator and hide it inside the λ-function created here by us. As a result <code>obtainLogin</code> returns partially applied function, which we apply to the prefix string - and in the end we get the final result.</p>
+<pre><code>My login: denis
+</code></pre><p>You might be interested why have I said about λ-functions? Because we don&#39;t have a familiar backslash here:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">where</span> loginStorage login prefix = prefix ++ <span class="hljs-string">": "</span> ++ login
+</code></pre>
+<p>But it doesn&#39;t matter, as this notation is identical to the λ-form:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">where</span> loginStorage = \login prefix -&gt; prefix ++ <span class="hljs-string">": "</span> ++ login
+</code></pre>
+<p>Remember I said earlier that it is better to define a trivial function without declaration? This is the exact same case.</p>
+<p>It&#39;s done. Now you know about higher-order functions. It&#39;s because of functions in Haskell can be used as values, we can make flexible combinations from those.</p>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../about functions/31-lambda_functions.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../about functions/33-functional_chains.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="../gitbook/app.js"></script>
+        
+    </body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        <meta charset="UTF-8">
+        <title>Functional chains | О Haskell по-человечески</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="denisshevchenko">
+        <meta name="description" content="Book generated using GitBook">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+        
+        <link href='http://fonts.googleapis.com/css?family=Cuprum:400,400italic,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+        
+        <link rel="next" href="../about lists/README.html" />
+        
+        
+        <link rel="prev" href="../about functions/32-higher_order_functions.html" />
+        
+
+        <meta property="og:title" content="Functional chains | О Haskell по-человечески">
+        <meta property="og:site_name" content="О Haskell по-человечески">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/denisshevchenko">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+        
+        <link rel="stylesheet" href="../gitbook/style.css">
+        
+        
+    </head>
+    <body>
+        
+<div class="book" data-github="denisshevchenko/ohaskell" data-level="4.4" data-basepath=".." data-revision="1396985499365">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="https://github.com/denisshevchenko/ohaskell" target="_blank" class="btn pull-left"><i class="fa fa-github-alt"></i></a>
+    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search"><i class="fa fa-search"></i></a>
+
+    <!-- Actions Right -->
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="google-plus"><i class="fa fa-google-plus"></i></a>
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="twitter"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://github.com/denisshevchenko/ohaskell/stargazers" target="_blank" class="btn pull-right count-star"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/denisshevchenko/ohaskell/watchers" target="_blank" class="btn pull-right count-watch"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+
+
+    <!-- Title -->
+    <h1><a href="../" >О Haskell по-человечески</a></h1>
+</div>
+
+    <div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        <li>
+            <a href="https://github.com/denisshevchenko" target="blank">About the author</a>
+        </li>
+        <li>
+            <a href="https://github.com/denisshevchenko/ohaskell/issues" target="blank">Questions and Issues</a>
+        </li>
+        <li>
+            <a href="https://github.com/denisshevchenko/ohaskell/edit/master/about functions/33-functional_chains.md" target="blank">Edit and Contribute</a>
+        </li>
+        <li class="divider"></li>
+        <li data-level="0" data-path="index.html">
+            <a href="../"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+            <li  data-level="1" data-path="intro/README.html">
+                
+                <a href="../intro/README.html">
+                    <i class="fa fa-check"></i> <b>1)</b> Introduction
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="1.1" data-path="intro/00-who.html">
+                            
+                            <a href="../intro/00-who.html">
+                                <i class="fa fa-check"></i> <b>1.1)</b> Who
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.2" data-path="intro/01-why.html">
+                            
+                            <a href="../intro/01-why.html">
+                                <i class="fa fa-check"></i> <b>1.2)</b> Why
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.3" data-path="intro/02-for_what.html">
+                            
+                            <a href="../intro/02-for_what.html">
+                                <i class="fa fa-check"></i> <b>1.3)</b> For what
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.4" data-path="intro/03-for_whom.html">
+                            
+                            <a href="../intro/03-for_whom.html">
+                                <i class="fa fa-check"></i> <b>1.4)</b> For whom
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="2" data-path="prepare/README.html">
+                
+                <a href="../prepare/README.html">
+                    <i class="fa fa-check"></i> <b>2)</b> Prepare
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="2.1" data-path="prepare/10-create_project.html">
+                            
+                            <a href="../prepare/10-create_project.html">
+                                <i class="fa fa-check"></i> <b>2.1)</b> Create project
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.2" data-path="prepare/11-about_modules.html">
+                            
+                            <a href="../prepare/11-about_modules.html">
+                                <i class="fa fa-check"></i> <b>2.2)</b> About modules, minimum
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.3" data-path="prepare/12-about_hackage.html">
+                            
+                            <a href="../prepare/12-about_hackage.html">
+                                <i class="fa fa-check"></i> <b>2.3)</b> About Hackage
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="3" data-path="about Haskell/README.html">
+                
+                <a href="../about Haskell/README.html">
+                    <i class="fa fa-check"></i> <b>3)</b> About Haskell
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="3.1" data-path="about Haskell/20-pure_functionality.html">
+                            
+                            <a href="../about Haskell/20-pure_functionality.html">
+                                <i class="fa fa-check"></i> <b>3.1)</b> Pure functionality
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.2" data-path="about Haskell/21-three_foundations.html">
+                            
+                            <a href="../about Haskell/21-three_foundations.html">
+                                <i class="fa fa-check"></i> <b>3.2)</b> Types, three foundations
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.3" data-path="about Haskell/22-immutability.html">
+                            
+                            <a href="../about Haskell/22-immutability.html">
+                                <i class="fa fa-check"></i> <b>3.3)</b> Immutability
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.4" data-path="about Haskell/23-laziness.html">
+                            
+                            <a href="../about Haskell/23-laziness.html">
+                                <i class="fa fa-check"></i> <b>3.4)</b> Laziness
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="4" data-path="about functions/README.html">
+                
+                <a href="../about functions/README.html">
+                    <i class="fa fa-check"></i> <b>4)</b> About functions
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="4.1" data-path="about functions/30-pure_functions.html">
+                            
+                            <a href="../about functions/30-pure_functions.html">
+                                <i class="fa fa-check"></i> <b>4.1)</b> Pure functions
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.2" data-path="about functions/31-lambda_functions.html">
+                            
+                            <a href="../about functions/31-lambda_functions.html">
+                                <i class="fa fa-check"></i> <b>4.2)</b> Lambda-functions
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.3" data-path="about functions/32-higher_order_functions.html">
+                            
+                            <a href="../about functions/32-higher_order_functions.html">
+                                <i class="fa fa-check"></i> <b>4.3)</b> Higher order functions
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.4" data-path="about functions/33-functional_chains.html">
+                            
+                            <a href="../about functions/33-functional_chains.html">
+                                <i class="fa fa-check"></i> <b>4.4)</b> Functional chains
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="5" data-path="about lists/README.html">
+                
+                <a href="../about lists/README.html">
+                    <i class="fa fa-check"></i> <b>5)</b> About lists
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="5.1" data-path="about lists/40-lists_at_a_glance.html">
+                            
+                            <a href="../about lists/40-lists_at_a_glance.html">
+                                <i class="fa fa-check"></i> <b>5.1)</b> Lists at a glance
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.2" data-path="about lists/41-ranges.html">
+                            
+                            <a href="../about lists/41-ranges.html">
+                                <i class="fa fa-check"></i> <b>5.2)</b> Lambda-functions
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body" tabindex="-1">
+        <div class="body-inner">
+            <div class="page-wrapper">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 86.36363636363636%;min-width: 81.81818181818181%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../intro/README.html" title="Introduction" class="chapter done new-chapter" data-progress="1" style="left: 4.545454545454546%;"></a>
+    
+        <a href="../intro/00-who.html" title="Who" class="chapter done " data-progress="1.1" style="left: 9.090909090909092%;"></a>
+    
+        <a href="../intro/01-why.html" title="Why" class="chapter done " data-progress="1.2" style="left: 13.636363636363637%;"></a>
+    
+        <a href="../intro/02-for_what.html" title="For what" class="chapter done " data-progress="1.3" style="left: 18.181818181818183%;"></a>
+    
+        <a href="../intro/03-for_whom.html" title="For whom" class="chapter done " data-progress="1.4" style="left: 22.727272727272727%;"></a>
+    
+        <a href="../prepare/README.html" title="Prepare" class="chapter done new-chapter" data-progress="2" style="left: 27.272727272727273%;"></a>
+    
+        <a href="../prepare/10-create_project.html" title="Create project" class="chapter done " data-progress="2.1" style="left: 31.818181818181817%;"></a>
+    
+        <a href="../prepare/11-about_modules.html" title="About modules, minimum" class="chapter done " data-progress="2.2" style="left: 36.36363636363637%;"></a>
+    
+        <a href="../prepare/12-about_hackage.html" title="About Hackage" class="chapter done " data-progress="2.3" style="left: 40.90909090909091%;"></a>
+    
+        <a href="../about Haskell/README.html" title="About Haskell" class="chapter done new-chapter" data-progress="3" style="left: 45.45454545454545%;"></a>
+    
+        <a href="../about Haskell/20-pure_functionality.html" title="Pure functionality" class="chapter done " data-progress="3.1" style="left: 50%;"></a>
+    
+        <a href="../about Haskell/21-three_foundations.html" title="Types, three foundations" class="chapter done " data-progress="3.2" style="left: 54.54545454545455%;"></a>
+    
+        <a href="../about Haskell/22-immutability.html" title="Immutability" class="chapter done " data-progress="3.3" style="left: 59.09090909090909%;"></a>
+    
+        <a href="../about Haskell/23-laziness.html" title="Laziness" class="chapter done " data-progress="3.4" style="left: 63.63636363636363%;"></a>
+    
+        <a href="../about functions/README.html" title="About functions" class="chapter done new-chapter" data-progress="4" style="left: 68.18181818181819%;"></a>
+    
+        <a href="../about functions/30-pure_functions.html" title="Pure functions" class="chapter done " data-progress="4.1" style="left: 72.72727272727273%;"></a>
+    
+        <a href="../about functions/31-lambda_functions.html" title="Lambda-functions" class="chapter done " data-progress="4.2" style="left: 77.27272727272727%;"></a>
+    
+        <a href="../about functions/32-higher_order_functions.html" title="Higher order functions" class="chapter done " data-progress="4.3" style="left: 81.81818181818181%;"></a>
+    
+        <a href="../about functions/33-functional_chains.html" title="Functional chains" class="chapter done " data-progress="4.4" style="left: 86.36363636363636%;"></a>
+    
+        <a href="../about lists/README.html" title="About lists" class="chapter  new-chapter" data-progress="5" style="left: 90.9090909090909%;"></a>
+    
+        <a href="../about lists/40-lists_at_a_glance.html" title="Lists at a glance" class="chapter  " data-progress="5.1" style="left: 95.45454545454545%;"></a>
+    
+        <a href="../about lists/41-ranges.html" title="Lambda-functions" class="chapter  " data-progress="5.2" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_15">
+                    
+                        <h3 id="functional-chains">Functional chains</h3>
+<p>Often you can say about functions that one is not a warrior. In this chapter we&#39;ll look at two convenient ways to organize function cooperation.</p>
+<h4 id="url-example">URL example</h4>
+<p>It is known, that URL must satisfy specific rules. But in real life it is not always true, so we need a way to transform URL to a correct format. This is how it can look like:</p>
+<pre><code class="lang-haskell"><span class="hljs-import"><span class="hljs-keyword">import</span> Data.Char</span>
+<span class="hljs-import"><span class="hljs-keyword">import</span> Data.String.Utils</span>
+
+<span class="hljs-title">addPrefix</span> :: <span class="hljs-type">String</span> -&gt; <span class="hljs-type">String</span>
+<span class="hljs-title">addPrefix</span> url =
+    <span class="hljs-keyword">if</span> url `startsWith` prefix <span class="hljs-keyword">then</span> url <span class="hljs-keyword">else</span> prefix ++ url
+    <span class="hljs-keyword">where</span> prefix = <span class="hljs-string">"http://"</span>
+        startsWith url prefix = startswith prefix url
+
+<span class="hljs-title">encodeAllSpaces</span> = replace <span class="hljs-string">" "</span> <span class="hljs-string">"%20"</span>   <span class="hljs-comment">-- Changes all spaces to %20</span>
+
+<span class="hljs-title">makeItLowerCase</span> = map toLower         <span class="hljs-comment">-- Transform letters to lower case</span>
+
+<span class="hljs-title">main</span> =
+    putStrLn (addPrefix (encodeAllSpaces (makeItLowerCase url)))
+    <span class="hljs-keyword">where</span> url = <span class="hljs-string">"www.SITE.com/test me/Start page"</span>
+</code></pre>
+<p>The output will be:</p>
+<pre><code><span class="hljs-label">http:</span>//www<span class="hljs-preprocessor">.site</span><span class="hljs-preprocessor">.com</span>/test%<span class="hljs-number">20</span>me/start%<span class="hljs-number">20</span>page
+</code></pre><p>We have imported a new module <code>Data.String.Utils</code>. This module is a part of <code>MissingH</code> package, which contains a lot of useful utilities. Let&#39;s install it:</p>
+<pre><code><span class="hljs-variable">$ </span>cabal install <span class="hljs-constant">MissingH</span>
+</code></pre><p>Don&#39;t forget to mention it in <code>Real.cabal</code></p>
+<pre><code><span class="hljs-attribute">build-depends</span>: <span class="hljs-string">base ==4.6.*, MissingH</span>
+</code></pre><p><code>Data.String.Utils</code> module has a lot of great things to work with strings, but we needed only one function <code>startswith</code>, which checks if one string is the beginning of another.</p>
+<p>You might have noticed two unusual strings:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">encodeAllSpaces</span> = replace <span class="hljs-string">" "</span> <span class="hljs-string">"%20"</span>
+
+<span class="hljs-title">makeItLowerCase</span> = map toLower
+</code></pre>
+<p>What is it? It looks like function without a declaration, but where is an argument? We don&#39;t need one. To clarify, let&#39;s write this with an argument:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">makeItLowerCase</span> url = map toLower url
+</code></pre>
+<p>This is the complete form. But we can shorten it if we remove the argument. Why? Because this form:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">makeItLowerCase</span> = map toLower
+</code></pre>
+<p>says that <code>makeItLowerCase</code> is an alias for a functional notation <code>map toLower</code>. So from now on, when we write <code>makeItLowerCase arg</code>, we assume <code>map toLower arg</code>.</p>
+<p>Now we have three functions, each of which makes a relatively simple operation with the URL: <code>makeItLowerCase</code> converts all symbols to lower case, <code>encodeAllSpaces</code> changes spaces to <code>%20</code> string, <code>addPrefix</code> adds the prefix if it is absent. So in the end we have a chain of three functions: the input is the incorrect URL and the output is the fixed URL. Let&#39;s take a closer look on this chain:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">addPrefix</span> (encodeAllSpaces (makeItLowerCase url))
+</code></pre>
+<p>At first <code>makeItLowerCase</code> is called, then <code>encodeAllSpaces</code>, and then <code>addPrefix</code>. Each function receives URL as input and outputs a refined URL, which is the input of the next function.</p>
+<p>Everything could be fine, but there is a drawback in this chain - there are too many parentheses. And if we add more correction functions, we&#39;ll have even more. There are two ways to make these chains prettier.</p>
+<h4 id="function-composition">Function composition</h4>
+<p>Function composition looks like a dot. Its purpose is to join functions into a chain. Like this:</p>
+<pre><code class="lang-haskell">(addPrefix . encodeAllSpaces . makeItLowerCase) url
+</code></pre>
+<p>Function composition makes one function out of three, which is then applied to <code>url</code>, and the result is the same as if we wrote</p>
+<pre><code class="lang-haskell"><span class="hljs-title">addPrefix</span> (encodeAllSpaces (makeItLowerCase url))
+</code></pre>
+<p>You can say that function composition made a stack of three functions: they are written from left to right, but they will be executed from right to left. So <code>url</code> string moves through a conveyor from right to left.</p>
+<h4 id="application-function">Application function</h4>
+<p>And there is also an application function or an application operator. It looks like a dollar sign. Its purpose is also to join functions into a chain. Like this:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">addPrefix</span> $ encodeAllSpaces $ makeItLowerCase url
+</code></pre>
+<p>Here we don&#39;t have parentheses at all. And this notation is the same as:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">addPrefix</span> (encodeAllSpaces (makeItLowerCase url))
+</code></pre>
+<p>Here we also get a stack of functions: they are written from left to right and are called from right to left. This order is called right-associative.</p>
+<p>You&#39;re probably interested, what&#39;s the difference between these two approaches? Both of them are designed to make chains of functions.</p>
+<p>The main difference is that application function allows us to chain not just functions, but a function and its argument:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">main</span> = print $ <span class="hljs-string">"Hi master!"</span>
+</code></pre>
+<p>The dollar operator joined the value and the function applied to it. And function composition won&#39;t allow you to do that.</p>
+<p>Why do we need it, you may ask. I&#39;ll answer:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">main</span> = print (<span class="hljs-string">"Hi master '"</span> ++ name ++ <span class="hljs-string">"', have a nice day"</span>)
+</code></pre>
+<p><code>print</code> function expects just one argument, so we need to put parentheses around three strings which are concatenated. It is more convenient to write:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">main</span> = print $ <span class="hljs-string">"Hi master '"</span> ++ name ++ <span class="hljs-string">"', have a nice day"</span>
+</code></pre>
+<p>We got rid of parentheses by joining the function and its argument into a chain. Because of this, function composition and application function are often used together:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">addPrefix</span> . encodeAllSpaces . makeItLowerCase $ url
+</code></pre>
+<p>The dot joins functions and the dollar sign joins them with the argument.</p>
+<p>Now you know about functional chains.</p>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../about functions/32-higher_order_functions.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../about lists/README.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="../gitbook/app.js"></script>
+        
+    </body>
+</html>

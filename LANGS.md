@@ -1,2 +1,2 @@
-* [По-русски](ru/index.html)
-* [in English](en/index.html)
+* [По-русски](ru/)
+* [in English](en/)

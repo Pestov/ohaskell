@@ -1,0 +1,604 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        <meta charset="UTF-8">
+        <title>Pure functions | О Haskell по-человечески</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="denisshevchenko">
+        <meta name="description" content="Book generated using GitBook">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+        
+        <link href='http://fonts.googleapis.com/css?family=Cuprum:400,400italic,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+        
+        <link rel="next" href="../about functions/31-lambda_functions.html" />
+        
+        
+        <link rel="prev" href="../about functions/README.html" />
+        
+
+        <meta property="og:title" content="Pure functions | О Haskell по-человечески">
+        <meta property="og:site_name" content="О Haskell по-человечески">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/denisshevchenko">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+        
+        <link rel="stylesheet" href="../gitbook/style.css">
+        
+        
+    </head>
+    <body>
+        
+<div class="book" data-github="denisshevchenko/ohaskell" data-level="4.1" data-basepath=".." data-revision="1396985499365">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="https://github.com/denisshevchenko/ohaskell" target="_blank" class="btn pull-left"><i class="fa fa-github-alt"></i></a>
+    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search"><i class="fa fa-search"></i></a>
+
+    <!-- Actions Right -->
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="google-plus"><i class="fa fa-google-plus"></i></a>
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="twitter"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://github.com/denisshevchenko/ohaskell/stargazers" target="_blank" class="btn pull-right count-star"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/denisshevchenko/ohaskell/watchers" target="_blank" class="btn pull-right count-watch"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+
+
+    <!-- Title -->
+    <h1><a href="../" >О Haskell по-человечески</a></h1>
+</div>
+
+    <div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        <li>
+            <a href="https://github.com/denisshevchenko" target="blank">About the author</a>
+        </li>
+        <li>
+            <a href="https://github.com/denisshevchenko/ohaskell/issues" target="blank">Questions and Issues</a>
+        </li>
+        <li>
+            <a href="https://github.com/denisshevchenko/ohaskell/edit/master/about functions/30-pure_functions.md" target="blank">Edit and Contribute</a>
+        </li>
+        <li class="divider"></li>
+        <li data-level="0" data-path="index.html">
+            <a href="../"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+            <li  data-level="1" data-path="intro/README.html">
+                
+                <a href="../intro/README.html">
+                    <i class="fa fa-check"></i> <b>1)</b> Introduction
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="1.1" data-path="intro/00-who.html">
+                            
+                            <a href="../intro/00-who.html">
+                                <i class="fa fa-check"></i> <b>1.1)</b> Who
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.2" data-path="intro/01-why.html">
+                            
+                            <a href="../intro/01-why.html">
+                                <i class="fa fa-check"></i> <b>1.2)</b> Why
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.3" data-path="intro/02-for_what.html">
+                            
+                            <a href="../intro/02-for_what.html">
+                                <i class="fa fa-check"></i> <b>1.3)</b> For what
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.4" data-path="intro/03-for_whom.html">
+                            
+                            <a href="../intro/03-for_whom.html">
+                                <i class="fa fa-check"></i> <b>1.4)</b> For whom
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="2" data-path="prepare/README.html">
+                
+                <a href="../prepare/README.html">
+                    <i class="fa fa-check"></i> <b>2)</b> Prepare
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="2.1" data-path="prepare/10-create_project.html">
+                            
+                            <a href="../prepare/10-create_project.html">
+                                <i class="fa fa-check"></i> <b>2.1)</b> Create project
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.2" data-path="prepare/11-about_modules.html">
+                            
+                            <a href="../prepare/11-about_modules.html">
+                                <i class="fa fa-check"></i> <b>2.2)</b> About modules, minimum
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.3" data-path="prepare/12-about_hackage.html">
+                            
+                            <a href="../prepare/12-about_hackage.html">
+                                <i class="fa fa-check"></i> <b>2.3)</b> About Hackage
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="3" data-path="about Haskell/README.html">
+                
+                <a href="../about Haskell/README.html">
+                    <i class="fa fa-check"></i> <b>3)</b> About Haskell
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="3.1" data-path="about Haskell/20-pure_functionality.html">
+                            
+                            <a href="../about Haskell/20-pure_functionality.html">
+                                <i class="fa fa-check"></i> <b>3.1)</b> Pure functionality
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.2" data-path="about Haskell/21-three_foundations.html">
+                            
+                            <a href="../about Haskell/21-three_foundations.html">
+                                <i class="fa fa-check"></i> <b>3.2)</b> Types, three foundations
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.3" data-path="about Haskell/22-immutability.html">
+                            
+                            <a href="../about Haskell/22-immutability.html">
+                                <i class="fa fa-check"></i> <b>3.3)</b> Immutability
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.4" data-path="about Haskell/23-laziness.html">
+                            
+                            <a href="../about Haskell/23-laziness.html">
+                                <i class="fa fa-check"></i> <b>3.4)</b> Laziness
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="4" data-path="about functions/README.html">
+                
+                <a href="../about functions/README.html">
+                    <i class="fa fa-check"></i> <b>4)</b> About functions
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="4.1" data-path="about functions/30-pure_functions.html">
+                            
+                            <a href="../about functions/30-pure_functions.html">
+                                <i class="fa fa-check"></i> <b>4.1)</b> Pure functions
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.2" data-path="about functions/31-lambda_functions.html">
+                            
+                            <a href="../about functions/31-lambda_functions.html">
+                                <i class="fa fa-check"></i> <b>4.2)</b> Lambda-functions
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.3" data-path="about functions/32-higher_order_functions.html">
+                            
+                            <a href="../about functions/32-higher_order_functions.html">
+                                <i class="fa fa-check"></i> <b>4.3)</b> Higher order functions
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.4" data-path="about functions/33-functional_chains.html">
+                            
+                            <a href="../about functions/33-functional_chains.html">
+                                <i class="fa fa-check"></i> <b>4.4)</b> Functional chains
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="5" data-path="about lists/README.html">
+                
+                <a href="../about lists/README.html">
+                    <i class="fa fa-check"></i> <b>5)</b> About lists
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="5.1" data-path="about lists/40-lists_at_a_glance.html">
+                            
+                            <a href="../about lists/40-lists_at_a_glance.html">
+                                <i class="fa fa-check"></i> <b>5.1)</b> Lists at a glance
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.2" data-path="about lists/41-ranges.html">
+                            
+                            <a href="../about lists/41-ranges.html">
+                                <i class="fa fa-check"></i> <b>5.2)</b> Lambda-functions
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body" tabindex="-1">
+        <div class="body-inner">
+            <div class="page-wrapper">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 72.72727272727273%;min-width: 68.18181818181819%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../intro/README.html" title="Introduction" class="chapter done new-chapter" data-progress="1" style="left: 4.545454545454546%;"></a>
+    
+        <a href="../intro/00-who.html" title="Who" class="chapter done " data-progress="1.1" style="left: 9.090909090909092%;"></a>
+    
+        <a href="../intro/01-why.html" title="Why" class="chapter done " data-progress="1.2" style="left: 13.636363636363637%;"></a>
+    
+        <a href="../intro/02-for_what.html" title="For what" class="chapter done " data-progress="1.3" style="left: 18.181818181818183%;"></a>
+    
+        <a href="../intro/03-for_whom.html" title="For whom" class="chapter done " data-progress="1.4" style="left: 22.727272727272727%;"></a>
+    
+        <a href="../prepare/README.html" title="Prepare" class="chapter done new-chapter" data-progress="2" style="left: 27.272727272727273%;"></a>
+    
+        <a href="../prepare/10-create_project.html" title="Create project" class="chapter done " data-progress="2.1" style="left: 31.818181818181817%;"></a>
+    
+        <a href="../prepare/11-about_modules.html" title="About modules, minimum" class="chapter done " data-progress="2.2" style="left: 36.36363636363637%;"></a>
+    
+        <a href="../prepare/12-about_hackage.html" title="About Hackage" class="chapter done " data-progress="2.3" style="left: 40.90909090909091%;"></a>
+    
+        <a href="../about Haskell/README.html" title="About Haskell" class="chapter done new-chapter" data-progress="3" style="left: 45.45454545454545%;"></a>
+    
+        <a href="../about Haskell/20-pure_functionality.html" title="Pure functionality" class="chapter done " data-progress="3.1" style="left: 50%;"></a>
+    
+        <a href="../about Haskell/21-three_foundations.html" title="Types, three foundations" class="chapter done " data-progress="3.2" style="left: 54.54545454545455%;"></a>
+    
+        <a href="../about Haskell/22-immutability.html" title="Immutability" class="chapter done " data-progress="3.3" style="left: 59.09090909090909%;"></a>
+    
+        <a href="../about Haskell/23-laziness.html" title="Laziness" class="chapter done " data-progress="3.4" style="left: 63.63636363636363%;"></a>
+    
+        <a href="../about functions/README.html" title="About functions" class="chapter done new-chapter" data-progress="4" style="left: 68.18181818181819%;"></a>
+    
+        <a href="../about functions/30-pure_functions.html" title="Pure functions" class="chapter done " data-progress="4.1" style="left: 72.72727272727273%;"></a>
+    
+        <a href="../about functions/31-lambda_functions.html" title="Lambda-functions" class="chapter  " data-progress="4.2" style="left: 77.27272727272727%;"></a>
+    
+        <a href="../about functions/32-higher_order_functions.html" title="Higher order functions" class="chapter  " data-progress="4.3" style="left: 81.81818181818181%;"></a>
+    
+        <a href="../about functions/33-functional_chains.html" title="Functional chains" class="chapter  " data-progress="4.4" style="left: 86.36363636363636%;"></a>
+    
+        <a href="../about lists/README.html" title="About lists" class="chapter  new-chapter" data-progress="5" style="left: 90.9090909090909%;"></a>
+    
+        <a href="../about lists/40-lists_at_a_glance.html" title="Lists at a glance" class="chapter  " data-progress="5.1" style="left: 95.45454545454545%;"></a>
+    
+        <a href="../about lists/41-ranges.html" title="Lambda-functions" class="chapter  " data-progress="5.2" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_12">
+                    
+                        <h3 id="pure-functions">Pure functions</h3>
+<p>Since Haskell is a purely functional language, let&#39;s discuss pure functions
+as one of the cornerstones of the language.</p>
+<p>To begin with, let&#39;s recall some school math and formulate the basic definition
+of a function.</p>
+<blockquote>
+<p><strong>Function is a description of a dependency of something from something</strong></p>
+</blockquote>
+<p>Pure functions in Haskell are functions in mathematical sense themselves.
+They are descriptions of how the input value define the output value.</p>
+<p>Hence follows an important feature of pure functions, precisely the lack of
+<em>side-effects</em>. Input value of a pure function entirely and completely defines
+its output value. Therefore if we pass same value as input million times, we are
+guaranteed that on the output we&#39;ll get the same result million times.</p>
+<h4 id="declaring">Declaring</h4>
+<p>Same as in other programming languages, function should first be declared. Let 
+us do that.</p>
+<pre><code class="lang-haskell"><span class="hljs-title">simpleSum</span> :: <span class="hljs-type">Int</span> -&gt; <span class="hljs-type">Int</span>
+</code></pre>
+<p>Before the symbol <code>::</code> we declared the name of the function, then follows its
+type.</p>
+<pre><code><span class="hljs-title">simpleSum</span> :: <span class="hljs-type">Int</span> -&gt; <span class="hljs-type">Int</span>
+|       |    |        |
+  name          <span class="hljs-typedef"><span class="hljs-keyword">type</span></span>
+</code></pre><p>I understand that the collocation &quot;type of function&quot; sounds weird, but pure 
+function is a value that has type of function.</p>
+<p>Consider the declaration of this type:</p>
+<pre><code class="lang-haskell"><span class="hljs-type">Int</span> -&gt; <span class="hljs-type">Int</span>
+</code></pre>
+<p>Notice an arrow. This arrow itself means that we face the pure function. The type
+of the only argument (in this case it&#39;s the standard type <code>Int</code>) is on the left
+side of arrow, on the right side we have an output type (same <code>Int</code>). The arrow
+may be considered as a &quot;mental designation&quot; to the stream of information which
+pass through the function from input to output, left to right.</p>
+<p>I should remind you that pure function must have at least one argument and return
+something, cause that is the point of mathematical function.</p>
+<p>Concerning amount of arguments. Of course function may take several arguments. 
+Here is a type of function that takes three arguments.</p>
+<pre><code class="lang-haskell"><span class="hljs-type">Int</span> -&gt; <span class="hljs-type">Int</span> -&gt; <span class="hljs-type">Int</span> -&gt; <span class="hljs-type">Int</span>
+</code></pre>
+<p>That notation should be read as follows: find the last (most right) arrow, that&#39;s
+the separator: to the left from it goes the list of arguments&#39; types, to the right
+type of the output.</p>
+<pre><code><span class="hljs-type">Int</span> -&gt; <span class="hljs-type">Int</span> -&gt; <span class="hljs-type">Int</span> -&gt; <span class="hljs-type">Int</span>
+<span class="hljs-title">arguments'</span> types |  | output's <span class="hljs-typedef"><span class="hljs-keyword">type</span></span>
+</code></pre><h4 id="defining">Defining</h4>
+<p>Now the function needs to be defined. By the way, the function <em>must</em> be defined.
+For example in the <code>C</code> or <code>C++</code> language we may declare the function, but not
+define it (provided that it is never called) and stay calm. Haskell has a stricter
+approach: if you declared the function, please be so kind to define it, 
+otherwise the compiler will express it&#39;s categorical discontent.</p>
+<p>That&#39;s why right after the declaration we write the definition:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">simpleSum</span> :: <span class="hljs-type">Int</span> -&gt; <span class="hljs-type">Int</span>
+<span class="hljs-title">simpleSum</span> value = value + value
+</code></pre>
+<p>In this case the &quot;mental separator&quot; is the equal sign. Skeleton of that expression
+may be expressed this way:</p>
+<pre><code><span class="hljs-attribute">NAME ARGUMENTS </span>=<span class="hljs-string"> BODY_EXPRESSION</span>
+</code></pre><p>where <code>NAME</code> is function&#39;s name, <code>ARGUMENTS</code> is the list of arguments (their names,
+not types), and <code>BODY\_EXPRESSION</code> is the body of function. In that case we have
+the only argument namely <code>value</code>, we also have a simple body where we just sum
+argument with itself.</p>
+<h4 id="calling">Calling</h4>
+<p>Now our function may be called. Let us do that with argument 4, or as we say
+in world of <code>FP</code>, apply the function to the argument 4:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">main</span> = putStrLn (show (simpleSum <span class="hljs-number">4</span>))
+</code></pre>
+<p>Result:</p>
+<pre><code>8
+</code></pre><p>Done. Now I should clarify some important details.</p>
+<h4 id="exit-from-function">Exit from function</h4>
+<p>In the <code>C</code> language, if you have a function with returnable type, we must
+specify the exit points using <code>return</code> instruction. Moreover, there may be
+several exit points.</p>
+<p>It&#39;s very different with Haskell. Firstly, there may be only one exit point.
+Secondly, Haskell has no analog for <code>return</code> instruction. If we recall the
+mathematical nature of a pure function, we&#39;ll understand that there is no another way.
+After all, the pure function is a description of the dependency of the output
+value from the values on input, that&#39;s why it&#39;s body is an aggregate of 
+expressions which are evaluated and in result they give only one, the last 
+expression. That last expression is actually the &quot;exit point&quot; of the function.</p>
+<p>I&#39;ll give an example:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">indicate</span> :: <span class="hljs-type">String</span> -&gt; <span class="hljs-type">String</span>
+<span class="hljs-title">indicate</span> address = 
+    <span class="hljs-keyword">if</span> adress == <span class="hljs-string">"127.0.0.1"</span> <span class="hljs-keyword">then</span> <span class="hljs-string">"localhost"</span> <span class="hljs-keyword">else</span> address
+</code></pre>
+<p>This function takes an argument of standard type <code>String</code>, which represents some
+IP-address. In the function&#39;s body argument is checked on equality to <code>127.0.0.1</code>,
+in result we end up in one out of two logical branches. In <code>C++</code> it will look
+like that.</p>
+<pre><code class="lang-c++"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> indicate( <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; address ) {
+    <span class="hljs-keyword">if</span>( address == <span class="hljs-string">"127.0.0.1"</span> ) {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"localhost"</span>;
+    }
+    <span class="hljs-keyword">return</span> address;
+}
+</code></pre>
+<p>We explicitly pointed two exit points. But in Haskell we don&#39;t need to do that,
+as when we will get into one of the branches the selected expressions would be
+returned.</p>
+<p>To make it more clear, let&#39;s refactor the body of this function and get rid of
+<code>if-then-else</code> expression:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">indicate</span> :: <span class="hljs-type">String</span> -&gt; <span class="hljs-type">String</span>
+<span class="hljs-title">indicate</span> <span class="hljs-string">"127.0.0.1"</span> = <span class="hljs-string">"localhost"</span>
+<span class="hljs-title">indicate</span> address = address
+</code></pre>
+<p>Haskell allows to set several definitions for the same function. Consider it as
+a special type of overload. Here we say: &quot;If the input argument equals to
+<code>127.0.0.1</code> use the body №1, otherwise use the body №2.&quot; Therefore, when compiler
+will see call to that function in code it will just substitute it with the 
+corresponding expression: either string <code>localhost</code> in case if the first body
+is used, or the passed argument in case if the second body is used.</p>
+<p>Now everything fell into place: there is no need to explicitly specify the exit
+point of pure function, because the final expression in the body of this function
+will just substitute the call to it. That is, if it&#39;s written this way:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">main</span> = putStrLn (indicate <span class="hljs-string">"127.0.0.1"</span>)
+</code></pre>
+<p>it is the same thing as just:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">main</span> = putStrLn <span class="hljs-string">"localhost"</span>
+</code></pre>
+<p>That is an important property of pure functions: we always can safely substitute
+calls to them with returned results, and the application will work as it did 
+before. That&#39;s why it&#39;s easy to work with pure function.</p>
+<h4 id="guards">Guards</h4>
+<p>There is one more method to perform the selection inside the function with no
+use of <code>if-then-else</code>. It is called guard. Let&#39;s refactor our function one more
+time:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">indicate</span> :: <span class="hljs-type">String</span> -&gt; <span class="hljs-type">String</span>
+<span class="hljs-title">indicate</span> address
+    | address == <span class="hljs-string">"127.0.0.1"</span> = <span class="hljs-string">"localhost"</span>
+    | null address = <span class="hljs-string">"empty IP-address"</span>
+    | otherwise = address
+</code></pre>
+<p>Symbol <code>&#39;|&#39;</code> represents the selection, as if we substitute it with the word
+&quot;or&quot;. It is followed by logical condition and the corresponding final value of 
+the function.</p>
+<pre><code class="lang-haskell">| address == <span class="hljs-string">"127.0.0.1"</span> = <span class="hljs-string">"localhost"</span>
+| null address           = <span class="hljs-string">"empty IP-address"</span>
+...
+<span class="hljs-comment">-- логическое условие    = итоговое значение</span>
+</code></pre>
+<p>By the way, branch with condition <code>otherwise</code> should always take place. In case 
+if you miss it, the code would compile, but a treacherous bug will be settled 
+down inside your code. Particularly, if you&#39;ll write it these way:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">indicate</span> :: <span class="hljs-type">String</span> -&gt; <span class="hljs-type">String</span>
+<span class="hljs-title">indicate</span> adress
+    | address == <span class="hljs-string">"127.0.0.1"</span> = <span class="hljs-string">"localhost"</span>
+    | null adress = <span class="hljs-string">"empty IP-address"</span>
+</code></pre>
+<p>and then apply the function to a non-empty string, which is not &quot;<code>127.0.0.1</code>&quot;,
+you&#39;ll get a runtime error:</p>
+<pre><code>Real: src/Main.hs:(<span class="hljs-number">23</span>,<span class="hljs-number">1</span>)-(<span class="hljs-number">25</span>,<span class="hljs-number">36</span>): Non-exhaustive patterns <span class="hljs-operator">in</span> <span class="hljs-function"><span class="hljs-keyword">function</span></span>
+</code></pre><p>Be careful.</p>
+<h4 id="local-expressions">Local expressions</h4>
+<p>Local expression inside the function&#39;s body is a very useful thing, which can
+save us from magic numbers and repetitions.</p>
+<p>For example, we have such function:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">prepareLength</span> :: <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span>
+<span class="hljs-title">prepareLength</span> line =
+    line * <span class="hljs-number">0.4959</span>
+</code></pre>
+<p>Here we prepare the length of some line by multiplying its original length by
+given correction coefficient. However, we got a classical magic number,
+the implication of it is not clear and it&#39;s bad. Adding comments is not the
+best solution. Thus, let&#39;s add an expression which will clear the point of that
+number.</p>
+<pre><code class="lang-haskell"><span class="hljs-title">prepareLength</span> :: <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span>
+<span class="hljs-title">prepareLength</span> line =
+    line * coefficient
+    <span class="hljs-keyword">where</span> coefficient = <span class="hljs-number">0.4959</span>
+</code></pre>
+<p>Keyword <code>where</code> sets an expression, that may be used inside the function&#39;s body.
+Consider it as a pseudonym: identifier <code>coefficient</code> may now be used as analog
+of a numeric value <code>0.4959</code>.</p>
+<p>There may be several local expressions:</p>
+<pre><code class="lang-haskell">...
+    line * coefficient - correction
+    <span class="hljs-keyword">where</span> coefficient = <span class="hljs-number">0.4959</span>
+          correction = <span class="hljs-number">0.0012</span>
+</code></pre>
+<p>There is one more way to set the local auxiliary expression, particularly with
+the help of the keyword <code>let</code>. With the example of our last function, it will look
+this way:</p>
+<pre><code class="lang-haskell"><span class="hljs-title">prepareLength</span> :: <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span>
+<span class="hljs-title">prepareLength</span> line =
+    <span class="hljs-keyword">let</span> coefficient = <span class="hljs-number">12.4959</span>
+        correction = <span class="hljs-number">0.0012</span>
+    <span class="hljs-keyword">in</span>
+    line * coefficient - correction
+</code></pre>
+<p>The common structure is as follows:</p>
+<blockquote>
+<p>let <code>bindings</code> in <code>expression</code>,</p>
+</blockquote>
+<p>where <code>bindings</code> are the local expressions and <code>expression</code> is the place where
+we are going to use these local expressions.</p>
+<p>You are wondering what is the difference between <code>where</code> and <code>let</code>?</p>
+<p>Firstly, it&#39;s possible to have only one <code>where</code> expression and it should be placed
+to the end of the function&#39;s body, at the same time <code>let</code> can appear many times
+in any part of function&#39;s body.</p>
+<p>Secondly, expression set by <code>where</code> keyword is visible from any part of the
+function, whereas the expression set by keyword <code>let</code>, may be &quot;super-local&quot;.
+For example:</p>
+<pre><code class="lang-haskell">...
+    <span class="hljs-keyword">let</span> coefficient = <span class="hljs-number">12.4959</span>
+        correction = <span class="hljs-number">0.0012</span>
+    <span class="hljs-keyword">in</span>
+    line * coefficient - correction - (<span class="hljs-keyword">let</span> s = <span class="hljs-number">10.9</span> <span class="hljs-keyword">in</span> s + <span class="hljs-number">1</span>) - s
+</code></pre>
+<p>Here we set &quot;super-local&quot; expression with the name <code>s</code> which exists only inside
+the round parenthesis. That&#39;s why that code wouldn&#39;t pass the compilation, cause
+the second expression <code>s</code> is is outside the parenthesis.</p>
+<h4 id="without-declaration">Without declaration</h4>
+<p>As you remember, we can&#39;t declare the function without defining it.
+But what about to define the function without declaring it? The answer is: we can.</p>
+<p>The common practice is to declare the function and then define it. Yes, we <em>may</em>
+write it this way:</p>
+<pre><code class="lang-haskell"><span class="hljs-comment">-- There is no declarition only the definition</span>
+<span class="hljs-title">prepareLength</span> line =
+    ...
+</code></pre>
+<p>however for complicated functions such practice is not recommended, because the
+definition becomes poorer, as the description of arguments and type of output
+helps to understand the work done by function. Moreover, if you wouldn&#39;t specify
+these types, they&#39;ll become polymorphic, but let&#39;s talk about that later.</p>
+<p>However, if we consider really trivial functions, consisting of one-two lines,
+talking for themselves, then the declaring types of output and arguments will
+look excessive. In that case omit them.</p>
+<p>That&#39;s it, now you know about the pure functions. By the way, they will make you
+a lot of use, we&#39;ll come back to them in the subsequent chapters.</p>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../about functions/README.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../about functions/31-lambda_functions.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="../gitbook/app.js"></script>
+        
+    </body>
+</html>
