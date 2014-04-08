@@ -1,8 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
-        <link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css'>
-
+        
         <meta charset="UTF-8">
         <title>Introduction | О Haskell по-человечески</title>
 
@@ -12,6 +11,8 @@
         <meta name="description" content="Book generated using GitBook">
         <meta name="keywords" content="gitbook,github" >
         <meta name="generator" content="www.gitbook.io">
+        
+        <link href='http://fonts.googleapis.com/css?family=Cuprum:400,400italic,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
         
         <link rel="next" href="./intro/README.html" />
@@ -39,11 +40,12 @@
     </head>
     <body>
         
-<div class="book" data-github="denisshevchenko/ohaskell" data-level="0">
+<div class="book" data-github="denisshevchenko/ohaskell" data-level="0" data-basepath="." data-revision="1396975928522">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="https://github.com/denisshevchenko/ohaskell" target="_blank" class="btn pull-left"><i class="fa fa-github-alt"></i></a>
     <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search"><i class="fa fa-search"></i></a>
 
     <!-- Actions Right -->
     <a href="#" target="_blank" class="btn pull-right" data-sharing="google-plus"><i class="fa fa-google-plus"></i></a>
@@ -55,10 +57,13 @@
 
 
     <!-- Title -->
-    <h1><a href="./README.html" >О Haskell по-человечески</a></h1>
+    <h1><a href="./" >О Haskell по-человечески</a></h1>
 </div>
 
     <div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
     <ul class="summary">
         <li>
             <a href="https://github.com/denisshevchenko" target="blank">About the author</a>
@@ -70,11 +75,11 @@
             <a href="https://github.com/denisshevchenko/ohaskell/edit/master/README.md" target="blank">Edit and Contribute</a>
         </li>
         <li class="divider"></li>
-        <li data-level="0">
-            <a href="./README.html"><i class="fa fa-check"></i> Introduction</a>
+        <li data-level="0" data-path="index.html">
+            <a href="./"><i class="fa fa-check"></i> Introduction</a>
         </li>
         
-            <li  data-level="1">
+            <li  data-level="1" data-path="intro/README.html">
                 
                 <a href="./intro/README.html">
                     <i class="fa fa-check"></i> <b>1)</b> Лирическое вступление
@@ -83,7 +88,7 @@
                 
                 <ul class="articles">
                     
-                        <li  data-level="1.1">
+                        <li  data-level="1.1" data-path="intro/who.html">
                             
                             <a href="./intro/who.html">
                                 <i class="fa fa-check"></i> <b>1.1)</b> Кто
@@ -91,7 +96,7 @@
                             
                         </li>
                     
-                        <li  data-level="1.2">
+                        <li  data-level="1.2" data-path="intro/why.html">
                             
                             <a href="./intro/why.html">
                                 <i class="fa fa-check"></i> <b>1.2)</b> Почему
@@ -99,7 +104,7 @@
                             
                         </li>
                     
-                        <li  data-level="1.3">
+                        <li  data-level="1.3" data-path="intro/what-for.html">
                             
                             <a href="./intro/what-for.html">
                                 <i class="fa fa-check"></i> <b>1.3)</b> Зачем
@@ -107,7 +112,7 @@
                             
                         </li>
                     
-                        <li  data-level="1.4">
+                        <li  data-level="1.4" data-path="intro/for-whom.html">
                             
                             <a href="./intro/for-whom.html">
                                 <i class="fa fa-check"></i> <b>1.4)</b> Для кого
@@ -123,14 +128,15 @@
 </div>
 
     <div class="book-body" tabindex="-1">
-        <div class="page-wrapper">
-            <div class="book-progress">
+        <div class="body-inner">
+            <div class="page-wrapper">
+                <div class="book-progress">
     <div class="bar">
         <div class="inner" style="width: 0%;min-width: 0%;"></div>
     </div>
     <div class="chapters">
     
-        <a href="./README.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+        <a href="./index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
     
         <a href="./intro/README.html" title="Лирическое вступление" class="chapter  new-chapter" data-progress="1" style="left: 20%;"></a>
     
@@ -145,11 +151,11 @@
     </div>
 </div>
 
-            <div class="page-inner">
-            
-                <section class="normal" id="section-gitbook_1">
+                <div class="page-inner">
                 
-                    <h1 id="-haskell-">О Haskell по-человечески</h1>
+                    <section class="normal" id="section-gitbook_1">
+                    
+                        <h1 id="-haskell-">О Haskell по-человечески</h1>
 <h3 id="-">Приветствую вас!</h3>
 <p>Перед вами — книга о Haskell, удивительном, мощном и красивом языке программирования. Я написал её специально для тех, кто плохо представляет себе, что такое функциональное программирование и с чем его едят, но хочет наконец разобраться.</p>
 <h3 id="-">Почему эта книга появилась</h3>
@@ -157,17 +163,17 @@
 <h3 id="-">Зачем</h3>
 <p>Функциональное программирование — это своеобразное гетто посреди мирового мегаполиса программной разработки. Доля функциональных языков на рынке очень мала, а программистов, использующих эти языки, считают либо недосягаемой элитой, либо асоциальными идиотами. Цель этой книги — разрушить такое представление.</p>
 
+                    
+                    </section>
                 
-                </section>
-            
+                </div>
             </div>
-
-            <div class="page-footer">
-    
-        <a href="./intro/README.html" class="navigation-link">Start</a>
-    
-</div>
         </div>
+
+        
+        
+        <a href="./intro/README.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
+        
     </div>
 </div>
 
