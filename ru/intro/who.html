@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Почему | О Haskell по-человечески</title>
+        <title>Кто | О Haskell по-человечески</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -15,13 +15,13 @@
         <link href='http://fonts.googleapis.com/css?family=Cuprum:400,400italic,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
         
-        <link rel="next" href="../intro/what-for.html" />
+        <link rel="next" href="../intro/why.html" />
         
         
-        <link rel="prev" href="../intro/who.html" />
+        <link rel="prev" href="../intro/README.html" />
         
 
-        <meta property="og:title" content="Почему | О Haskell по-человечески">
+        <meta property="og:title" content="Кто | О Haskell по-человечески">
         <meta property="og:site_name" content="О Haskell по-человечески">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -42,7 +42,7 @@
     </head>
     <body>
         
-<div class="book" data-github="denisshevchenko/ohaskell" data-level="1.2" data-basepath=".." data-revision="1396978273490">
+<div class="book" data-github="denisshevchenko/ohaskell" data-level="1.1" data-basepath=".." data-revision="1396985499251">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="https://github.com/denisshevchenko/ohaskell" target="_blank" class="btn pull-left"><i class="fa fa-github-alt"></i></a>
@@ -74,7 +74,7 @@
             <a href="https://github.com/denisshevchenko/ohaskell/issues" target="blank">Questions and Issues</a>
         </li>
         <li>
-            <a href="https://github.com/denisshevchenko/ohaskell/edit/master/intro/why.md" target="blank">Edit and Contribute</a>
+            <a href="https://github.com/denisshevchenko/ohaskell/edit/master/intro/who.md" target="blank">Edit and Contribute</a>
         </li>
         <li class="divider"></li>
         <li data-level="0" data-path="index.html">
@@ -134,7 +134,7 @@
             <div class="page-wrapper">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 60%;min-width: 40%;"></div>
+        <div class="inner" style="width: 40%;min-width: 20%;"></div>
     </div>
     <div class="chapters">
     
@@ -144,7 +144,7 @@
     
         <a href="../intro/who.html" title="Кто" class="chapter done " data-progress="1.1" style="left: 40%;"></a>
     
-        <a href="../intro/why.html" title="Почему" class="chapter done " data-progress="1.2" style="left: 60%;"></a>
+        <a href="../intro/why.html" title="Почему" class="chapter  " data-progress="1.2" style="left: 60%;"></a>
     
         <a href="../intro/what-for.html" title="Зачем" class="chapter  " data-progress="1.3" style="left: 80%;"></a>
     
@@ -155,14 +155,19 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6">
+                    <section class="normal" id="section-gitbook_5">
                     
-                        <h2 id="-">Почему</h2>
-<p>А в самом деле, почему? С чего это я решил написать ещё одну книгу о Haskell?</p>
-<p>Причина первая: меня достало! Достало, что почти все известные мне руководства по Haskell начинаются с демонстрации того, как реализовать алгоритм быстрой сортировки. И ещё что-то там про факториал и числа Фибоначчи. Мне за все годы практики ни разу не приходилось реализовывать алгоритм быстрой сортировки. Поэтому я даже не знаю, что это такое.</p>
-<p>Исторически сложилось так, что большинство из нас начали свой профессиональный путь именно с императивных языков. И вот вместо того, чтобы показать нам красоту функциональных языков в свете их реального применения, нас тыкают носом в числа Фибоначчи и в почти нами забытую математическую нотацию... Естественно, читая подобные материалы, обычный программист начинает чувствовать себя дебилом, и это чувство отбивает в нём всякую охоту осваивать эту непонятную функциональщину.</p>
-<p>Именно поэтому я расскажу о Haskell нормальным, человеческим языком, с минимумом академизма и действительно понятными примерами.</p>
-<p>Есть и вторая причина. Все известные мне книги по Haskell слишком объёмны. В них много лишнего. А у нас, программистов-практиков, не так много свободного времени, чтобы проглатывать очередной талмудоподобный труд в 500 страниц. Именно поэтому я расскажу о Haskell по возможности лаконично.</p>
+                        <h2 id="-">Кто</h2>
+<blockquote>
+<p>Я, барон Мюнхгаузен, обыкновенный человек... </p>
+</blockquote>
+<p>А я, подобно Мюнхгаузену, обыкновенный программист. Самый заурядный самоучка. Когда-то я считал программирование самым скучным видом человеческой деятельности. Последние семь лет я считаю его одним из наиболее интересных дел.</p>
+<p>Фредерик Брукс был прав, серебряной пули не существует. И всё же программисты-практики ищут новые инструменты для решения своих непростых задач. Вот и я, после 7 лет опыта программирования на C++, решил искать нечто новое, и именно ради стремления к большей эффективности.</p>
+<p>Признаюсь, я начал уставать от сложности C++. Захотелось мне чего-нибудь эдакого. Компилируемость, строгость к типам, высокоуровневые конструкции, красивый синтаксис, универсальность и... что-нибудь попроще. Да, я хотел именно этого. Под руку случайно подвернулся Haskell — и зацепил меня сразу.</p>
+<p>Во-первых, отсутствие оператора присваивания. Признаюсь, крышу мне снесло напрочь, и я решил разобраться.</p>
+<p>Во-вторых, красота. Я люблю красивый код, а, как выяснилось, код на Haskell может быть очень красивым.</p>
+<p>В-третьих, мощь. Продолжайте читать, и чуть позже вы сами в этом убедитесь.</p>
+<p>И наконец, простота. Нет, я не оговорился. Мне известно, что к функциональному программированию эпитет «простое» применяется чуть реже, чем никогда. В частности, в отношении Haskell бытует мнение о чрезвычайной, прямо-таки фантастической сложности его освоения. И всё же я повторю: в этом языке меня поразила его простота. И скоро вы поймёте, что я имею в виду.</p>
 
                     
                     </section>
@@ -172,10 +177,10 @@
         </div>
 
         
-        <a href="../intro/who.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
+        <a href="../intro/README.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../intro/what-for.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
+        <a href="../intro/why.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
