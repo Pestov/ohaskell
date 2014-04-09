@@ -1,2 +1,2 @@
-* [По-русски](ru/)
-* [in English](en/)
+* [Русская версия](ru/)
+* [English version](en/)
